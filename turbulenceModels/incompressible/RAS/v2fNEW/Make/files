@@ -1,0 +1,2 @@
+v2fNEW.C 
+LIB = $(FOAM_USER_LIBBIN)/v2fNEW

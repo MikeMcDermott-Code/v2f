@@ -1,0 +1,36 @@
+/* RAS turbulence models */
+RASModel/RASModel.C
+
+/* Wall functions */
+wallFunctions = derivedFvPatchFields/wallFunctions
+
+nutWallFunctions = $(wallFunctions)/nutWallFunctions
+$(nutWallFunctions)/nutkWallFunction/nutkWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutWallFunction/nutWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutRoughWallFunction/nutRoughWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutSpalartAllmarasWallFunction/nutSpalartAllmarasWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutSpalartAllmarasStandardWallFunction/nutSpalartAllmarasStandardWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutSpalartAllmarasStandardRoughWallFunction/nutSpalartAllmarasStandardRoughWallFunctionFvPatchScalarField.C
+$(nutWallFunctions)/nutLowReWallFunction/nutLowReWallFunctionFvPatchScalarField.C
+
+epsilonWallFunctions = $(wallFunctions)/epsilonWallFunctions
+$(epsilonWallFunctions)/epsilonWallFunction/epsilonWallFunctionFvPatchScalarField.C
+
+omegaWallFunctions = $(wallFunctions)/omegaWallFunctions
+$(omegaWallFunctions)/omegaWallFunction/omegaWallFunctionFvPatchScalarField.C
+
+kqRWallFunctions = $(wallFunctions)/kqRWallFunctions
+$(kqRWallFunctions)/kqRWallFunction/kqRWallFunctionFvPatchFields.C
+
+RWallFunctions = $(wallFunctions)/RWallFunctions
+$(RWallFunctions)/RWallFunction/RWallFunctionFvPatchSymmTensorField.C
+
+
+/* Patch fields */
+derivedFvPatchFields/turbulentHeatFluxTemperature/turbulentHeatFluxTemperatureFvPatchScalarField.C
+derivedFvPatchFields/turbulentMixingLengthDissipationRateInlet/turbulentMixingLengthDissipationRateInletFvPatchScalarField.C
+derivedFvPatchFields/turbulentMixingLengthFrequencyInlet/turbulentMixingLengthFrequencyInletFvPatchScalarField.C
+
+backwardsCompatibility/wallFunctions/backwardsCompatibilityWallFunctions.C
+
+LIB = $(FOAM_USER_LIBBIN)/libincompressibleRASModels
