@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+libs
+(
+    "v2fVE.so"
+      
+  "libBCRheoTool.so"
+  "libgaussDefCmpwConvectionSchemes.so"
+  //"libOpenFOAM.so"
+  "libsimpleSwakFunctionObjects.so"
+  "libswakFunctionObjects.so"
+  "libgroovyBC.so"
+	"Viscoelastic.so"  
+);
+
+application 	pisoFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1005;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   1000;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  7;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+
+// ************************************************************************* //

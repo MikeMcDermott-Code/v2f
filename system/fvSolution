@@ -1,0 +1,157 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+	p
+    {
+        solver 			 CG;
+        preconditioner 	 Cholesky;
+        tolerance        1e-9;
+        relTol           0.1;
+        minIter          0;
+        maxIter          200;
+    }
+    
+    U
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }   
+    
+    k
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }  
+
+    epsilon
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }
+
+	f
+    {
+        solver           BiCGStab;
+        preconditioner   none;        
+        tolerance        1e-9;
+        relTol           0.1;
+        minIter          0;
+        maxIter          20;
+    }
+
+    v2
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }
+
+    theta
+    {
+        solver            BiCGStab;
+        preconditioner    none;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }
+        
+    R
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    }
+    
+    nuTilda
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-9;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;
+    } 
+    
+    C
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-7;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;        
+
+    }
+    
+    NLT
+    {
+        solver            BiCGStab;
+        preconditioner    ILU0;
+        tolerance         1e-7;
+        relTol            0.1;
+        minIter           0;
+        maxIter           20;       
+
+    }    
+}
+
+
+PISO
+{
+    nCorrectors    2;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+
+relaxationFactors
+{
+	p               0.3;
+    U               0.7;
+    k               0.7;
+	epsilon         0.7;
+	f	            0.7;
+	v2	            0.7;		
+	R               1;
+	nuTilda         1;
+	C				0.1;
+	NLT				0.1;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volSymmTensorField;
+    location    "0";
+    object      NLT;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [ 0 0 -1 0 0 0 0 ];
+
+internalField   uniform ( 1 0 0 1 0 1 );
+
+boundaryField
+{
+    leftandright
+    {
+        type            cyclic;
+    }
+    wall
+    {
+        type            calculated;
+        value			uniform (0 0 0 0 0 0);
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    middle
+    {
+        type            symmetryPlane;
+    }
+}
+
+
+// ************************************************************************* //
