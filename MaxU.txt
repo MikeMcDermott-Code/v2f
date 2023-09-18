@@ -1,0 +1,6 @@
+set title "Max U"
+set ylabel 'U'
+set xlabel 'Iteration'
+plot "< cat log | grep 'max(U.component(0))' | cut -d' ' -f9 | tr -d ','" title 'Ux' with lines
+pause 1
+reread 
