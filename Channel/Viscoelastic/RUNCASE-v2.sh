@@ -45,7 +45,7 @@ do
 	sed -i "38s/.*/lambda ${lambda["$i"]};/" constant/RASProperties;
 	sed -i "39s/.*/UNewt ${UNewt["$i"]};/" constant/RASProperties;
 	sed -i "18s/.*/nu   nu [0 2 -1 0 0 0 0]   ${nus["$i"]};/" constant/transportProperties;
-	TurbFoam >log;
+	pisoFoam >log;
 	paraFoam -touch;
 	paraview --script=DATA.py;
 	var=$(ls -v | grep -E '^[0-9]+$' | tail -n 1);
