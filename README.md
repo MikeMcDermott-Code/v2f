@@ -5,9 +5,9 @@ Full publication found in Physics of Fluids. https://doi.org/10.1063/5.0159668
 
 The code was developed within foam-extend 4.0 and requires an update to OpenFOAM v2212+.
 
-turbulenceModel/...
+turbulenceModels/...
 
--- Contains source code for the model embedded within the RAS class structure, with additional polymeric fields solved.
+-- Contains the source code for the Viscoelastic model embedded within the RAS class structure, with additional polymeric fields solved.
 
 Channel/Viscoelastic/...
 
