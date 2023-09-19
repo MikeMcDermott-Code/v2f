@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "100";
+    object      DR;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 27.41239;
+
+boundaryField
+{
+    leftandright
+    {
+        type            cyclic;
+        value           uniform 27.41239;
+    }
+    wall
+    {
+        type            calculated;
+        value           uniform 27.41239;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    middle
+    {
+        type            symmetryPlane;
+        value           uniform 27.41239;
+    }
+}
+
+
+// ************************************************************************* //
